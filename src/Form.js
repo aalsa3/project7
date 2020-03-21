@@ -14,6 +14,7 @@ import {
 import * as Firebase from "../components/Firebase";
 import firebase from 'firebase';
 import { withNavigation } from 'react-navigation';
+import { Constants } from 'expo'
 
 
 class Form extends React.Component {
@@ -30,7 +31,8 @@ class Form extends React.Component {
   }
 
   static navigationOptions = {
-    title: "Form"
+    title: "Form",
+    headerStyle: { marginTop: Constants.statusBarHeight },
   };
 
 

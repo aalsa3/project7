@@ -2,7 +2,17 @@ import React from 'react'
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity, InteractionManager, DrawerLayoutAndroid, Button, Picker, TextInput, Switch} from "react-native";
 import { Dropdown } from 'react-native-material-dropdown';
 
+import CreateSwitch from '../../components/CreateSwitch';
+
 export default function CreateScreen() {
+  state = {  
+    switchValue: false  
+  };  
+
+  toggleSwitch = (value) => {
+    this.setState({switchValue: value})
+    console.log('Switch 1 is: ' + value)
+  }
 
   let unitoptions = [{
     value: 'CAB202',
@@ -38,7 +48,9 @@ export default function CreateScreen() {
 
       <View style={styles.switch}>
         <Text>Multiple due dates</Text>
-        <Switch/>
+        <CreateSwitch
+            toggleSwitch = {this.toggleSwitch}
+            switchValue = {this.state.switchValue}/>
       </View>     
  
       <Text>Weighting</Text>

@@ -1,69 +1,98 @@
-import React from 'react'
-import { View, Text, StyleSheet, StatusBar, TouchableOpacity, InteractionManager, DrawerLayoutAndroid, Button, Picker, TextInput, Switch} from "react-native";
+import React, { Component } from 'react'
+import { View, Text, StyleSheet, StatusBar, TouchableOpacity, InteractionManager, DrawerLayoutAndroid, Button, Picker, TextInput, Switch } from "react-native";
 import { Dropdown } from 'react-native-material-dropdown';
 
 import CreateSwitch from '../../components/CreateSwitch';
 
-export default function CreateScreen() {
-  state = {  
-    switchValue: false  
-  };  
+export default class CreateScreen extends Component {
+  state = {
+    switchValue: false,
 
-  toggleSwitch = (value) => {
-    this.setState({switchValue: value})
-    console.log('Switch 1 is: ' + value)
-  }
+    multiplePieces: false,
+  };
 
-  let unitoptions = [{
-    value: 'CAB202',
-  }, {
-    value: 'EFB201',
-  }, {
-    value: 'Add new unit',
-  }];
+  // toggleSwitch = (value) => {
+  //   this.setState({switchValue: value})
+  //   console.log('Switch 1 is: ' + value)
+  // }
 
-  let typeoptions = [{
-    value: 'Assignment',
-  }, {
-    value: 'Quiz',
-  }, {
-    value: 'Group Project',
-  }, {
-    value: 'Add new type',
-  }];
-  return (
-    <View style={styles.container}>
-      <View style={styles.form}>
-      <Text>Unit</Text>
-      <Dropdown 
-        data = {unitoptions}
-      >
-      </Dropdown>
-      
-      <Text>Type</Text>
-      <Dropdown 
-        data = {typeoptions}
-      >
-      </Dropdown>
+  // let unitoptions = [{
+  //   value: 'CAB202',
+  // }, {
+  //   value: 'EFB201',
+  // }, {
+  //   value: 'Add new unit',
+  // }];
 
-      <View style={styles.switch}>
-        <Text>Multiple due dates</Text>
-        <CreateSwitch
-            toggleSwitch = {this.toggleSwitch}
-            switchValue = {this.state.switchValue}/>
-      </View>     
- 
-      <Text>Weighting</Text>
-      <TextInput style={styles.textfields}/>
-      {/* Add plus and minus options here later */}
+  // let typeoptions = [{
+  //   value: 'Assignment',
+  // }, {
+  //   value: 'Quiz',
+  // }, {
+  //   value: 'Group Project',
+  // }, {
+  //   value: 'Add new type',
+  // }];
+
+  render() {
+    let multiple = <View></View>;
+
+    if (this.state.multiplePieces) {
+      console.log('Hello');
+      multiple = (
+        <View>
+        <Text>Weighting</Text>
+        <TextInput style={styles.textfields} />
+        {/* Add plus and minus options here later */}
+  
+  
+        <Text>Description (optional)</Text>
+        <TextInput style={styles.textfields} />
+        </View>
+      )
+    }
 
 
-      <Text>Description (optional)</Text>
-      <TextInput style={styles.textfields}/>
+    return (
+      <View style={styles.container}>
+        <View style={styles.form}>
+          <Text>Unit</Text>
+          <Dropdown
+          //data = {unitoptions}
+          >
+          </Dropdown>
+
+          <Text>Type</Text>
+          <Dropdown
+          //data = {typeoptions}
+          >
+          </Dropdown>
+
+          <View style={styles.switch}>
+            <Text>Multiple due dates</Text>
+            <Picker
+              selectedValue={this.state.multiplePieces}
+              style={{ height: 50, width: 100 }}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ multiplePieces: itemValue })
+              }>
+              <Picker.Item label="No" value="False" />
+              <Picker.Item label="Yes" value="True" />
+            </Picker>
+
+            <Switch />
+            {/* <CreateSwitch
+              toggleSwitch = {this.toggleSwitch}
+              switchValue = {this.state.switchValue}/> */}
+          </View>
+
+          {multiple}
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -78,8 +107,8 @@ const styles = StyleSheet.create({
   },
   form: {
     flex: 1,
-    marginTop: 10, 
-    marginLeft: 20, 
+    marginTop: 10,
+    marginLeft: 20,
     marginRight: 20
   },
   textfields: {

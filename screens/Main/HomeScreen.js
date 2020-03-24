@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation }) {
 
 					{/* Bottom Progress Bar */}
 					<View style={styles.buttonProgressBar}>
-						<Progress.Bar progress = {0.8} width={320} height = {12} borderRadius = {50} borderWidth = {0} color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'} />
+						<Progress.Bar progress = {0.8} width={320} height = {12} borderRadius = {500} borderWidth = {0} color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'} />
 					</View>
 				</View>
 			</TouchableOpacity>
@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }) {
 
 					{/* Bottom Progress Bar */}
 					<View style={styles.buttonProgressBar}>
-						<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {50} borderWidth = {0}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
+						<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {500} borderWidth = {0} overFlow = {'hidden'}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
 					</View>
 				</View>
 			</TouchableOpacity>

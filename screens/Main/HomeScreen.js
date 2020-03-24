@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
 
 			{/* Button Template for upcoming assignments,
 			can later make this a component */}
-			<TouchableOpacity style={styles.button} onPress={() => console.log('pressed')}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AssignmentDetails")}>
 				<View style={[styles.colorCode, { backgroundColor: 'purple' }]}></View>
 				<View style={styles.buttonMain}>
 					<View style={styles.buttonTop}>
@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }) {
 
 			{/* Button Template for upcoming assignments,
 			can later make this a component */}
-			<TouchableOpacity style={styles.button} onPress={() => console.log('pressed')}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AssignmentDetails") }>
 				<View style={[styles.colorCode, { backgroundColor: 'red' }]}></View>
 				<View style={styles.buttonMain}>
 					<View style={styles.buttonTop}>

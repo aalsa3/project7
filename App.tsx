@@ -4,6 +4,9 @@ import AppNavigator from "./navigation/AppNavigator";
 
 import HomeScreen from "./screens/Main/HomeScreen";
 import CreateScreen from "./screens/Main/CreateScreen";
+
+import AssignmentDetailsScreen from "./screens/Main/AssignmentDetailsScreen";
+
 import MixedNavigators from "./navigation/MixedNavigators"
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -37,6 +40,8 @@ export default class App extends React.Component {
 
 					{/* Create Screen / Add Assignments */}
 					<Stack.Screen name="Create" component={CreateScreen} />
+
+					<Stack.Screen name="AssignmentDetails" component = {AssignmentDetailsScreen} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		);

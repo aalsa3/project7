@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity, InteractionManager, DrawerLayoutAndroid, Button, Picker, TextInput, Switch } from "react-native";
 import { Dropdown } from 'react-native-material-dropdown';
 
-import CreateSwitch from '../../components/CreateSwitch';
+import Tabs from '../../components/Tabs';
 
 export default class CreateScreen extends Component {
   state = {
@@ -35,19 +35,16 @@ export default class CreateScreen extends Component {
   // }];
 
   render() {
-    let multiple = <View></View>;
+    let multiple = <View></View>
 
+    // Render multiple assignment pieces view
     if (this.state.multiplePieces) {
-      console.log('Hello');
       multiple = (
         <View>
-        <Text>Weighting</Text>
-        <TextInput style={styles.textfields} />
-        {/* Add plus and minus options here later */}
-  
-  
-        <Text>Description (optional)</Text>
-        <TextInput style={styles.textfields} />
+          <Tabs
+            onPress = {props.updateIndex}
+            selectedIndex = {props.selectedIndex} 
+          />
         </View>
       )
     }
@@ -87,6 +84,18 @@ export default class CreateScreen extends Component {
           </View>
 
           {multiple}
+
+          <View>
+            <Text>Weighting</Text>
+            <TextInput style={styles.textfields} />
+            {/* Add plus and minus options here later */}
+
+
+            <Text>Description (optional)</Text>
+            <TextInput style={styles.textfields} />
+          </View>
+
+          {/*add in date and time selector here afterwards*/}
         </View>
       </View>
     );

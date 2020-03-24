@@ -41,10 +41,7 @@ export default class CreateScreen extends Component {
     if (this.state.multiplePieces) {
       multiple = (
         <View>
-          <Tabs
-            onPress = {props.updateIndex}
-            selectedIndex = {props.selectedIndex} 
-          />
+          <Tabs/>
         </View>
       )
     }

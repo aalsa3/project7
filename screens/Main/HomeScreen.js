@@ -7,107 +7,112 @@ import CreateScreen from './CreateScreen';
 
 import Icon from "react-native-vector-icons/Ionicons";
 import * as Progress from 'react-native-progress';
+import { render } from 'react-dom';
 
-export default function HomeScreen({ navigation }) {
-	return (
-		<View style={styles.container}>
+export default class HomeScreen extends React.Component {
+	render() {
 
-			{/* Button Template for upcoming assignments,
-			can later make this a component */}
-			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AssignmentDetails")}>
-				<View style={[styles.colorCode, { backgroundColor: 'purple' }]}></View>
-				<View style={styles.buttonMain}>
-					<View style={styles.buttonTop}>
-
-						{/* Top Left */}
-						<View style={styles.buttonTopLeft}>
-							<Text style={styles.buttonHeading}>EFB201</Text>
-							<Text style={styles.subtitleText}>Assignment 1 - Essay</Text>
+		return (
+			<View style={styles.container}>
+	
+				{/* Button Template for upcoming assignments,
+				can later make this a component */}
+				<TouchableOpacity style={styles.button} onPress={() => { this.props.navigation.navigate("AssignmentDetails", {
+																																unit: 'EFB201',
+																																weight: '50%',
+																																dueIn: '1'
+																															 });}}>
+					<View style={[styles.colorCode, { backgroundColor: 'purple' }]}></View>
+					<View style={styles.buttonMain}>
+						<View style={styles.buttonTop}>
+	
+							{/* Top Left */}
+							<View style={styles.buttonTopLeft}>
+								<Text style={styles.buttonHeading}>EFB201</Text>
+								<Text style={styles.subtitleText}>Assignment 1 - Essay</Text>
+							</View>
+	
+	
+							{/* Top Right */}
+							<View style={styles.buttonTopRight}>
+								<Text style={styles.buttonHeading}>50%</Text>
+								<Text style={styles.subtitleText}>Due in 1 day</Text>
+							</View>
 						</View>
-
-
-						{/* Top Right */}
-						<View style={styles.buttonTopRight}>
-							<Text style={styles.buttonHeading}>50%</Text>
-							<Text style={styles.subtitleText}>Due in 1 day</Text>
-						</View>
-					</View>
-
-					{/* Bottom Progress Bar */}
-					<View style={styles.buttonProgressBar}>
-						<Progress.Bar progress = {0.8} width={320} height = {12} borderRadius = {500} borderWidth = {0} color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'} />
-					</View>
-				</View>
-			</TouchableOpacity>
-
-
-
-
-
-			{/* Button Template for upcoming assignments,
-			can later make this a component */}
-			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AssignmentDetails") }>
-				<View style={[styles.colorCode, { backgroundColor: 'red' }]}></View>
-				<View style={styles.buttonMain}>
-					<View style={styles.buttonTop}>
-
-						{/* Top Left */}
-						<View style={styles.buttonTopLeft}>
-							<Text style={styles.buttonHeading}>CAB202</Text>
-							<Text style={styles.subtitleText}>Assignment 1</Text>
-						</View>
-
-
-						{/* Top Right */}
-						<View style={styles.buttonTopRight}>
-							<Text style={styles.buttonHeading}>40%</Text>
-							<Text style={styles.subtitleText}>Due in  20 days</Text>
+	
+						{/* Bottom Progress Bar */}
+						<View style={styles.buttonProgressBar}>
+							<Progress.Bar progress = {0.8} width={320} height = {12} borderRadius = {500} borderWidth = {0} color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'} />
 						</View>
 					</View>
-
-					{/* Bottom Progress Bar */}
-					<View style={styles.buttonProgressBar}>
-						<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {500} borderWidth = {0} overFlow = {'hidden'}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
-					</View>
-				</View>
-			</TouchableOpacity>
-
-			{/* Button Template for upcoming assignments,
-			can later make this a component */}
-			<TouchableOpacity style={[styles.button, {backgroundColor: 'rgba(52, 52, 52, 0.8)'}] } onPress={() => console.log('pressed')}>
-				<View style={[styles.colorCode, { backgroundColor: 'red' }]}></View>
-				<View style={styles.buttonMain}>
-					<View style={styles.buttonTop}>
-
-						{/* Top Left */}
-						<View style={styles.buttonTopLeft}>
-							<Text style={styles.buttonHeading}>CAB202</Text>
-							<Text style={styles.subtitleText}>Assignment 1</Text>
+				</TouchableOpacity>
+	
+				{/* Button Template for upcoming assignments,
+				can later make this a component */}
+				<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AssignmentDetails") }>
+					<View style={[styles.colorCode, { backgroundColor: 'red' }]}></View>
+					<View style={styles.buttonMain}>
+						<View style={styles.buttonTop}>
+	
+							{/* Top Left */}
+							<View style={styles.buttonTopLeft}>
+								<Text style={styles.buttonHeading}>CAB202</Text>
+								<Text style={styles.subtitleText}>Assignment 1</Text>
+							</View>
+	
+	
+							{/* Top Right */}
+							<View style={styles.buttonTopRight}>
+								<Text style={styles.buttonHeading}>40%</Text>
+								<Text style={styles.subtitleText}>Due in  20 days</Text>
+							</View>
 						</View>
-
-
-						{/* Top Right */}
-						<View style={styles.buttonTopRight}>
-							<Text style={styles.buttonHeading}>40%</Text>
-							<Text style={styles.subtitleText}>Complete</Text>
+	
+						{/* Bottom Progress Bar */}
+						<View style={styles.buttonProgressBar}>
+							<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {500} borderWidth = {0} overFlow = {'hidden'}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
 						</View>
 					</View>
-
-					{/* Bottom Progress Bar */}
-					<View style={styles.buttonProgressBar}>
-						<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {50} borderWidth = {0}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
+				</TouchableOpacity>
+	
+				{/* Button Template for upcoming assignments,
+				can later make this a component */}
+				<TouchableOpacity style={[styles.button, {backgroundColor: 'rgba(52, 52, 52, 0.8)'}] } onPress={() => console.log('pressed')}>
+					<View style={[styles.colorCode, { backgroundColor: 'red' }]}></View>
+					<View style={styles.buttonMain}>
+						<View style={styles.buttonTop}>
+	
+							{/* Top Left */}
+							<View style={styles.buttonTopLeft}>
+								<Text style={styles.buttonHeading}>CAB202</Text>
+								<Text style={styles.subtitleText}>Assignment 1</Text>
+							</View>
+	
+	
+							{/* Top Right */}
+							<View style={styles.buttonTopRight}>
+								<Text style={styles.buttonHeading}>40%</Text>
+								<Text style={styles.subtitleText}>Complete</Text>
+							</View>
+						</View>
+	
+						{/* Bottom Progress Bar */}
+						<View style={styles.buttonProgressBar}>
+							<Progress.Bar progress = {0.15} width={320} height = {12} borderRadius = {50} borderWidth = {0}  color = {'#1DA1D2'} unfilledColor = {'#D6D6D6'}  />
+						</View>
 					</View>
-				</View>
-			</TouchableOpacity>
+				</TouchableOpacity>
+	
+	
+				<Button
+					title="Go to create screen"
+					onPress={() => this.props.navigation.navigate('Create')}
+				/>
+	
+			</View>
+		);
+	}
 
-
-			<Button
-				title="Go to create screen"
-				onPress={() => navigation.navigate('Create')}
-			/>
-
-		</View>
-	);
 
 }
 

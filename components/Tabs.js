@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup } from 'react-native';
+import { ButtonGroup } from 'react-native-elements';
 
 export default class Tabs extends Component {
     constructor() {
@@ -9,6 +9,8 @@ export default class Tabs extends Component {
         }
         this.updateIndex = this.updateIndex.bind(this)
     }
+
+    
 
     updateIndex (selectedIndex) {
         this.setState({selectedIndex})

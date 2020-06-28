@@ -13,7 +13,6 @@ export default class Tabs extends Component {
         this.updateIndex = this.updateIndex.bind(this)
     }
 
-    
 
     updateIndex (selectedIndex) {
         this.setState({selectedIndex})
